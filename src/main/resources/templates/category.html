@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="~{/fragment/header :: headerFragment}"></div>
+    <title>Category Page</title>
+    <style>
+        .left {
+            position: fixed;
+            right: 50%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6_99_UzrV36DJuWR8R5g-wD_gI4_NK8rYw6PpSdKLlQ&s");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .right {
+            float: right;
+            width: 45%;
+            padding: 0 8px 0 0;
+            box-sizing:border-box;
+        }
+
+        .card {
+            margin-bottom: 24px;
+        }
+
+        #bottom button {
+            position: fixed;
+            right: 30%;
+            bottom: 0%;
+            z-index: 1000;
+            transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body id="body-pd">
+    <div th:insert="~{/fragment/nav :: navFragment}"></div>
+
+    <nav class="navbar navbar-light navbar-expand bg-light">
+        <div class="container-fluid">
+            <!-- -->
+            <div class="navbar-nav">
+                <a class="nav-link active" href="#first-section">First Section</a>
+                <a class="nav-link" href="#second-section">Second Section</a>
+                <a class="nav-link" href="#third-section">Third Section</a>
+                <a class="nav-link" href="#fourth-section">Fourth Section</a>
+            </div>
+            <!-- -->
+        </div>
+    </nav>
+
+    <section id="first-section" style="padding-top: 6em;">
+        <h1>First Section</h1>
+        <div class="row">
+            <div class="col-sm-2 col-md-2" onclick="toggleModal()">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="second-section" style="padding-top: 6em;">
+        <h1>Second Section</h1>
+        <div class="row">
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="third-section" style="padding-top: 6em;">
+        <h1>Third Section</h1>
+        <div class="row">
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fourth-section" style="padding-top: 6em;">
+        <h1>Fourth Section</h1>
+        <div class="row">
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://plus.unsplash.com/premium_photo-1661692771609-cf95e59d72e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" width="100%" height="30%">
+                        <div style="margin-top: 8px;">
+                            <a href="#" class="btn"><b style="font-size: 20px">Go somewhere</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div th:insert="~{/fragment/footer :: footerFragment}"></div>
+
+    <div id="bottom" style="margin-top: 5%">
+        <button id="bot_open" class="btn btn-primary btn-rounded" style="text-align: center; width: 30%;">View Order</button>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+    </div>
+
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function (event) {
+            const showNavbar = (toggleId, navId, bodyId, headerId) => {
+                const toggle = document.getElementById(toggleId),
+                    nav = document.getElementById(navId),
+                    bodypd = document.getElementById(bodyId),
+                    headerpd = document.getElementById(headerId);
+
+                // Validate that all variables exist
+                if (toggle && nav && bodypd && headerpd) {
+                    toggle.addEventListener("click", () => {
+                        // show navbar
+                        nav.classList.toggle("show");
+                        // change icon
+                        toggle.classList.toggle("bx-x");
+                        // add padding to body
+                        bodypd.classList.toggle("body-pd");
+                        // add padding to header
+                        headerpd.classList.toggle("body-pd");
+                    });
+                }
+            };
+
+            showNavbar("header-toggle", "nav-bar", "body-pd", "header");
+
+            /*===== LINK ACTIVE =====*/
+            const linkColor = document.querySelectorAll(".nav_link");
+
+            function colorLink() {
+                if (linkColor) {
+                    linkColor.forEach((l) => l.classList.remove("active"));
+                    this.classList.add("active");
+                }
+            }
+            linkColor.forEach((l) => l.addEventListener("click", colorLink));
+
+            // Your code to run since DOM is loaded and ready
+        });
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        function toggleModal() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
